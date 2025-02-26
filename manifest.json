@@ -1,0 +1,11 @@
+{
+  "id": "npx-quartz-sync",
+  "name": "Run npx quartz sync",
+  "version": "1.0.0",
+  "minAppVersion": "0.12.0",
+  "description": "Adds a button to run 'npx quartz sync'",
+  "author": "KingPoss",
+  "authorUrl": "https://kingposs.com",
+  "isDesktopOnly": true,
+  "main": "main.js"
+}
