@@ -110,33 +110,25 @@ var QuartzGitSyncPlugin = /** @class */ (function (_super) {
     };
     QuartzGitSyncPlugin.prototype.refreshFileExplorer = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var fer, err_1;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        fer = this.app.plugins.plugins['file-explorer-reload'];
-                        if (!(fer && typeof fer.reloadDirectory === 'function')) return [3 /*break*/, 4];
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, fer.reloadDirectory('/', true)];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                    case 3:
-                        err_1 = _a.sent();
-                        console.error('[refreshFileExplorer] file-explorer-reload plugin error:', err_1);
-                        return [3 /*break*/, 4];
-                    case 4:
-                        // Otherwise, do manual refresh
-                        this.app.workspace.getLeavesOfType('file-explorer').forEach(function (leaf) {
-                            var anyView = leaf.view;
-                            if (anyView === null || anyView === void 0 ? void 0 : anyView.refresh) {
-                                anyView.refresh();
-                            }
-                        });
-                        return [2 /*return*/];
-                }
+                // // Try "file-explorer-reload" plugin if available
+                // const fer = this.app.plugins.plugins['file-explorer-reload'];
+                // if (fer && typeof fer.reloadDirectory === 'function') {
+                //   try {
+                //     await fer.reloadDirectory('/', true);
+                //     return;
+                //   } catch (err) {
+                //     console.error('[refreshFileExplorer] file-explorer-reload plugin error:', err);
+                //   }
+                // }
+                // Otherwise, do manual refresh
+                this.app.workspace.getLeavesOfType('file-explorer').forEach(function (leaf) {
+                    var anyView = leaf.view;
+                    if (anyView === null || anyView === void 0 ? void 0 : anyView.refresh) {
+                        anyView.refresh();
+                    }
+                });
+                return [2 /*return*/];
             });
         });
     };

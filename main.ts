@@ -47,16 +47,16 @@ export default class QuartzGitSyncPlugin extends Plugin {
   }
 
   private async refreshFileExplorer() {
-    // Try "file-explorer-reload" plugin if available
-    const fer = this.app.plugins.plugins['file-explorer-reload'];
-    if (fer && typeof fer.reloadDirectory === 'function') {
-      try {
-        await fer.reloadDirectory('/', true);
-        return;
-      } catch (err) {
-        console.error('[refreshFileExplorer] file-explorer-reload plugin error:', err);
-      }
-    }
+    // // Try "file-explorer-reload" plugin if available
+    // const fer = this.app.plugins.plugins['file-explorer-reload'];
+    // if (fer && typeof fer.reloadDirectory === 'function') {
+    //   try {
+    //     await fer.reloadDirectory('/', true);
+    //     return;
+    //   } catch (err) {
+    //     console.error('[refreshFileExplorer] file-explorer-reload plugin error:', err);
+    //   }
+    // }
     // Otherwise, do manual refresh
     this.app.workspace.getLeavesOfType('file-explorer').forEach(leaf => {
       const anyView = leaf.view as any;
